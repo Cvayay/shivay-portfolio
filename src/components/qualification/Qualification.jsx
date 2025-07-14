@@ -32,10 +32,10 @@ const Qualification = () => {
                 <div className={toggleState === 1 ? "qualification__content qualification__content-active" : "qualification__content"}>
                     <div className="qualification__data">
                         <div>
-                            <h3 className="qualification__title">Bachelor of Computer Applications</h3>
+                            <h3 className="qualification__title">BCA</h3>
                             <span className="qualification__subtitle">REVA University - Bengaluru</span>
                             <div className="qualification__calender">
-                                <i className="uil uil-calendar-alt"></i> 2021 - 2024
+                                <i className="uil uil-calendar-alt"></i> 2021 - 2025
                             </div>
                         </div>
 
@@ -47,7 +47,7 @@ const Qualification = () => {
 
 
 
-                    {/* <div className="qualification__data">
+                    <div className="qualification__data">
                         <div>
                         </div>
 
@@ -57,14 +57,14 @@ const Qualification = () => {
                         </div> 
 
                         <div>
-                            <h3 className="qualification__title">Master's of Computer Application.</h3>
-                            <span className="qualification__subtitle">REVA University - Bengaluru</span>
+                            <h3 className="qualification__title">MCA</h3>
+                            <span className="qualification__subtitle">Chandigarh University - Nawabganj, UP</span>
                             <div className="qualification__calender">
-                                <i className="uil uil-calendar-alt"></i> 2024 - Present
+                                <i className="uil uil-calendar-alt"></i> 2025 - 2025
                             </div>
                         </div>
 
-                    </div> */}
+                    </div>
 
 
                 </div>
