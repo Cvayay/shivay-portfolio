@@ -17,8 +17,7 @@ const About = () => {
             <Info />
 
             <p className="about__description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur cumque, ut eveniet amet odit dolorem blanditiis eum cupiditate fuga, soluta ab nemo delectus ipsum natus consequuntur? Nam harum beatae recusandae.
-            </p>
+I love turning ideas into interactive experiences. With a focus on simplicity and smart design, I build digital solutions that connect creativity with functionality            </p>
 
             <a download="" href={CV} className="button 
             button--flex">Download CV
