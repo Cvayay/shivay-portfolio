@@ -44,6 +44,11 @@
     margin-bottom: var(--mb-2-5);
 }
 
+.about__box:hover {
+    transform: traslateY(-5px);
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
 /*=============== BREAKPOINTS ===============*/
 /* For large devices */
 @media screen and (max-width: 992px) {

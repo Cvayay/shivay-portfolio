@@ -58,9 +58,9 @@ const Qualification = () => {
 
                         <div>
                             <h3 className="qualification__title">MCA</h3>
-                            <span className="qualification__subtitle">Chandigarh University - Nawabganj, UP</span>
+                            <span className="qualification__subtitle">Chandigarh University - Uttar Pradesh</span>
                             <div className="qualification__calender">
-                                <i className="uil uil-calendar-alt"></i> 2025 - 2025
+                                <i className="uil uil-calendar-alt"></i> 2025 - 2026
                             </div>
                         </div>
 
