@@ -1,5 +1,5 @@
-import Image1 from "../../assests/testimonial1.jpg";
-import Image2 from "../../assests/testimonial1.jpg";
+import Image1 from "../../assets/testimonial1.jpg";
+import Image2 from "../../assets/testimonial1.jpg";
 
 export const Data = [
     {

@@ -1,78 +1,65 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { navLinks } from "../home/Data"; // Importing your data
 import "./header.css";
-
+// import { homeData } from './Data'; // Use the specific named export you need
 const Header = () => {
-    // change background header
-    window.addEventListener("scroll", function () {
-        const header = document.querySelector(".header");
-        // when is croll is higher than 200 viewport this.innerHeight, add the show-scroll class to tag with the scroll-top class
-        if (this.scrollY >= 80) header.classList.add("scroll-header");
-        else header.classList.remove("scroll-header");
-    });
-    // toggle menu 
-    const[Toggle, showMenu] = useState(false);
-    const [activeNav, setActiveNav] = useState('#home')
-  return (
-    <div>
-      <header className="header">
-        <nav className="nav container">
-            <a href="index.html" className="nav__logo">shivaय</a>
+    /* =============== Change Background Header =============== */
+    const [scrollHeader, setScrollHeader] = useState(false);
 
-            <div className={Toggle ? "nav__menu show-menu" : 
-                "nav__menu"}>
-                <ul className="nav__list grid">
-                    <li className="nav__item">
-                        <a href="#home" onClick={() => setActiveNav('#home')} className={activeNav === '#home' ? "nav__link active-link" : "nav__link"}>
-                            <i className="uil uil-estate nav__icon"></i>Home
-                        </a>
-                    </li>
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY >= 80) setScrollHeader(true);
+            else setScrollHeader(false);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
-                    <li className="nav__item">
-                        <a href="#about"
-                        onClick={() => setActiveNav('#about')} className={activeNav === '#about' ? "nav__link active-link" : "nav__link"} 
-                        >
-                            <i className="uil uil-user nav__icon"></i>About
-                        </a>
-                    </li>
+    /* =============== Toggle Menu =============== */
+    const [toggle, showMenu] = useState(false);
+    const [activeNav, setActiveNav] = useState('#home');
 
-                    <li className="nav__item">
-                        <a href="#skills" onClick={() => setActiveNav('#skills')} className={activeNav === '#skills' ? "nav__link active-link" : "nav__link"}>
-                            <i className="uil uil-file-alt nav__icon"></i>Skills
-                        </a>
-                    </li>
+    return (
+        <header className={scrollHeader ? "header scroll-header" : "header"}>
+            <nav className="nav container">
+                <a href="index.html" className="nav__logo">श</a>
 
-                    <li className="nav__item">
-                        <a href="#services" onClick={() => setActiveNav('#services')} className={activeNav === '#services' ? "nav__link active-link" : "nav__link"}>
-                            <i className="uil uil-briefcase-alt nav__icon"></i>Services
-                        </a>
-                    </li>
+                <div className={toggle ? "nav__menu show-menu" : "nav__menu"}>
+                    <ul className="nav__list">
+                        {navLinks.map((link, index) => {
+                            return (
+                                <li className="nav__item" key={index}>
+                                    <a 
+                                        href={link.hash} 
+                                        onClick={() => {
+                                            setActiveNav(link.hash);
+                                            showMenu(false); // Closes menu on click (Mobile)
+                                        }} 
+                                        className={activeNav === link.hash ? "nav__link active-link" : "nav__link"}
+                                    >
+                                        {link.name}
+                                    </a>
+                                </li>
+                            );
+                        })}
+                        
+                        {/* Separate Resume button to keep it styled differently */}
+                        <li className="nav__item">
+                            <a href="#resume" className="nav__link resume-btn">
+                                Resume
+                            </a>
+                        </li>
+                    </ul>
 
-                    <li className="nav__item">
-                        <a href="#portfolio" onClick={() => setActiveNav('#portfolio')} className={activeNav === '#portfolio' ? "nav__link active-link" : "nav__link"}>
-                            <i className="uil uil-scenery nav__icon"></i>Portfolio
-                        </a>
-                    </li>
+                    <i className="uil uil-times nav__close" onClick={() => showMenu(!toggle)}></i>
+                </div>
 
-                    <li className="nav__item">
-                        <a href="#contact" onClick={() => setActiveNav('#contact')} className={activeNav === '#contact' ? "nav__link active-link" : "nav__link"}>
-                            <i className="uil uil-message nav__icon"></i>Contact
-                        </a>
-                    </li>
-                </ul>
-                <i class="uil uil-times nav__close"onClick={() => showMenu
-                (!Toggle)
-            }></i>
-            </div>
-
-            <div className="nav__toggle" onClick={() => showMenu
-                (!Toggle)
-            }>
-            <i class="uil uil-apps"></i>
-            </div>
-        </nav>
-      </header>
-    </div>
-  )
+                <div className="nav__toggle" onClick={() => showMenu(!toggle)}>
+                    <i className="uil uil-apps"></i>
+                </div>
+            </nav>
+        </header>
+    );
 }
 
-export default Header
+export default Header;

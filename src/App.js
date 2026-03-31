@@ -13,8 +13,8 @@ import ScrollUp from './components/scrollup/ScrollUp';
 
 const App = () => {
   return(
-    <>
-     <Header />
+    <div className='portfolio-wrappper'>
+    <Header />
 
      <main className='main'>
       <Home />
@@ -28,7 +28,7 @@ const App = () => {
 
      <Footer />
      <ScrollUp />
-    </>
+      </div>
   )
 }
 

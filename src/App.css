@@ -1,68 +1,56 @@
-/*=============== FONTS FOR IOS ===============*/
-/* Bolder font adjustments */
-@import url("https://fonts.googleapis.com/css2?family=Arial:wght@700&display=swap");
+/*=============== FONTS ===============*/
+/* Importing 'Inter' for that clean tech look and 'Caveat' for the handwriting */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Caveat:wght@400;700&display=swap');
 
 /*=============== VARIABLES CSS ===============*/
 :root {
-  --header-height: 3rem;
+  --header-height: 4rem;
 
-  /*========== Colors ==========*/
-  /* Retaining your original color scheme */
-  --hue: 0;
-  --sat: 0%;
-  --title-color: hsl(var(--hue), var(--sat), 20%);
-  --title-color-dark: hsl(var(--hue), var(--sat), 0%);
-  --text-color: hsl(var(--hue), var(--sat), 46%);
-  --body-color: hsl(var(--hue), var(--sat), 98%);
+  /*========== Colors - Warm Designer Palette ==========*/
+  --title-color: #3d3d3d;
+  --title-color-dark: #1a1a1a;
+  --text-color: #575757;
+  --body-color: #faf9f6; /* Soft cream background */
   --container-color: #fff;
+  --accent-color: #efb08c; /* Shreya's signature peach/tan */
+  --accent-color-light: #fdf5f0;
 
   /*========== Font and typography ==========*/
-  /* Keeping the body font but making it bolder and more visually striking */
-  --body-font: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --body-font: 'Inter', sans-serif;
+  --handwriting-font: 'Caveat', cursive;
 
-  /* Increasing font sizes and weights */
-  --big-font-size: 3.5rem; /* Bolder and larger for standout effect */
-  --h1-font-size: 2.5rem;
-  --h2-font-size: 1.75rem;
-  --h3-font-size: 1.375rem;
-  --normal-font-size: 1.125rem; /* Slightly larger for better readability */
-  --small-font-size: 1rem;
-  --smaller-font-size: 0.9rem;
-  --tiny-font-size: 0.75rem; /* More readable tiny text */
+  --big-font-size: 5rem; 
+  --h1-font-size: 2.25rem;
+  --h2-font-size: 1.5rem;
+  --h3-font-size: 1.25rem;
+  --normal-font-size: 1rem;
+  --small-font-size: 0.875rem;
+  --smaller-font-size: 0.813rem;
 
   /*========== Font weight ==========*/
-  /* Making text and headers bolder */
-  --font-normal: 500; /* Bolder regular text */
-  --font-medium: 600; /* Medium bold */
-  --font-semi-bold: 700; /* Bolder headers and important elements */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  --font-bold: 700;
 
-  /*========== Margenes Bottom ==========*/
-  /* More spacing for a cleaner look */
-  --mb-0-25: 0.5rem;
-  --mb-0-5: 1rem;
-  --mb-0-75: 1.25rem;
-  --mb-1: 1.5rem;
-  --mb-1-5: 2rem;
-  --mb-2: 2.5rem;
-  --mb-2-5: 3rem;
-  --mb-3: 4rem;
+  /*========== Spacing ==========*/
+  --mb-0-5: 0.5rem;
+  --mb-0-75: 0.75rem;
+  --mb-1: 1rem;
+  --mb-1-5: 1.5rem;
+  --mb-2: 2rem;
+  --mb-3: 3rem;
 
-  /*========== z index ==========*/
-  --z-tooltip: 10;
   --z-fixed: 100;
-  --z-modal: 1000;
 }
 
 /* Responsive typography */
 @media screen and (max-width: 992px) {
   :root {
-    --big-font-size: 2.75rem;
-    --h1-font-size: 1.5rem;
+    --big-font-size: 3.5rem;
+    --h1-font-size: 1.75rem;
     --h2-font-size: 1.25rem;
-    --h3-font-size: 1rem;
     --normal-font-size: 0.938rem;
-    --small-font-size: 0.813rem;
-    --smaller-font-size: 0.75rem;
   }
 }
 
@@ -77,24 +65,18 @@ html {
   scroll-behavior: smooth;
 }
 
-body,
-button,
-input,
-textarea {
-  font-family: var(--body-font);
-  font-size: var(--normal-font-size);
-}
-
 body {
   background-color: var(--body-color);
   color: var(--text-color);
+  font-family: var(--body-font);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-h1,
-h2,
-h3 {
+h1, h2, h3 {
   color: var(--title-color);
-  font-weight: var(--font-semi-bold);
+  font-weight: var(--font-bold);
+  line-height: 1.2;
 }
 
 ul {
@@ -103,119 +85,76 @@ ul {
 
 a {
   text-decoration: none;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  outline: none;
+  color: inherit;
 }
 
 img {
   max-width: 100%;
   height: auto;
+  display: block;
 }
 
-/*=============== REUSABLE CSS CLASSES ===============*/
+/*=============== REUSABLE CLASSES ===============*/
 .section {
-  padding: 6rem 0 2rem;
+  padding: 10rem 0 2rem; /* Much more vertical breathing room */
 }
 
 .section__title {
   font-size: var(--h1-font-size);
-  color: var(--title-color);
+  text-align: center;
+  margin-bottom: var(--mb-1);
 }
 
 .section__subtitle {
   display: block;
-  font-size: var(--small-font-size);
-  margin-bottom: 4rem;
-}
-
-.section__title,
-.section__subtitle {
+  font-family: var(--handwriting-font);
+  font-size: 1.5rem;
+  color: var(--accent-color);
   text-align: center;
+  margin-bottom: var(--mb-3);
 }
 
 /*=============== LAYOUT ===============*/
 .container {
-  max-width: 968px;
+  max-width: 1140px; /* Slightly wider for a modern feel */
   margin-left: auto;
   margin-right: auto;
+  padding: 0 1.5rem;
 }
 
 .grid {
   display: grid;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 /*=============== BUTTONS ===============*/
 .button {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   background-color: var(--title-color);
-  color: var(--container-color);
-  padding: 1.25rem 2rem;
-  border-radius: 1rem;
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 50px; /* Fully rounded buttons */
   font-weight: var(--font-medium);
+  transition: 0.3s ease;
+  gap: 0.5rem;
 }
 
 .button:hover {
   background-color: var(--title-color-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-.button__icon {
-  margin-left: var(--mb-0-5);
-}
-
-.button--flex {
-  display: inline-flex;
-  align-items: center;
+/* Custom Selection Color */
+::selection {
+  background-color: var(--accent-color);
+  color: white;
 }
 
 /*=============== BREAKPOINTS ===============*/
-/* For large devices */
-@media screen and (max-width: 992px) {
-  .container {
-    margin-left: var(--mb-1-5);
-    margin-right: var(--mb-1-5);
-  }
-
-  .button {
-    padding: 1rem 1.75rem;
-  }
-
-  .button__icon {
-    width: 22px;
-    height: 22px;
-  }
-}
-
-/* For medium devices */
 @media screen and (max-width: 768px) {
-  body {
-    margin: 0 0 var(--header-height) 0;
-  }
-
   .section {
-    padding: 2rem 0 4rem;
-  }
-
-  .section__subtitle {
-    margin-bottom: var(--mb-3);
-  }
-}
-
-@media screen and (max-width: 576px) {
-}
-
-/* For small devices */
-@media screen and (max-width: 350px) {
-  :root {
-    --big-font-size: 2.25rem;
-  }
-
-  .container {
-    margin-left: var(--mb-1);
-    margin-right: var(--mb-1);
+    padding: 6rem 0 3rem;
   }
 }
