@@ -1,7 +1,7 @@
 import React from 'react';
 import "./home.css";
 import Social from './Social';
-import homeData from '../home/Data'; // This is your UI component (Data.jsx)
+// import homeData from '../home/Data'; // This is your UI component (Data.jsx)
 import ScrollDown from './ScrollDown';
 import { homeData, navLinks } from './Data'; // This is your info from src/data.jsx
 
@@ -17,8 +17,12 @@ const Home = () => {
           {/* 1. Social Links (Sidebar) */}
           <Social />
 
-          {/* 2. Text Content (Name, Title, Description, Button) */}
-          <homeDataData />
+            <div className="home__data">
+                <h1 className="home__title">{homeData.firstName} {homeData.lastName}</h1>
+                <h3 className="home__subtitle">{homeData.subtitle}</h3>
+                <p className="home__description">{homeData.description}</p>
+                <a href="#contact" className="button button--flex">Say Hello</a>
+            </div>
 
           {/* 3. The Interactive Collage (Right Side) */}
           <div className="home__collage">
